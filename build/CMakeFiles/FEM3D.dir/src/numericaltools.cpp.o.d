@@ -1,6 +1,6 @@
-CMakeFiles/FEM3D.dir/src/mesh.cpp.o: \
-  /Users/dual/Dropbox/FEM3D/src/mesh.cpp \
-  /Users/dual/Dropbox/FEM3D/src/mesh.hpp \
+CMakeFiles/FEM3D.dir/src/numericaltools.cpp.o: \
+  /Users/dual/Dropbox/FEM3D/src/numericaltools.cpp \
+  /Users/dual/Dropbox/FEM3D/src/numericaltools.hpp \
   /opt/homebrew/opt/petsc/include/petsc.h \
   /opt/homebrew/opt/petsc/include/petscbag.h \
   /opt/homebrew/opt/petsc/include/petscsys.h \
@@ -1025,7 +1025,4 @@ CMakeFiles/FEM3D.dir/src/mesh.cpp.o: \
   /opt/homebrew/opt/petsc/include/petscpctypes.h \
   /opt/homebrew/opt/petsc/include/petscconvest.h \
   /opt/homebrew/opt/petsc/include/petsctao.h \
-  /opt/homebrew/opt/petsc/include/petsctaolinesearch.h \
-  /Users/dual/Dropbox/FEM3D/src/numericaltools.hpp \
-  /Users/dual/Dropbox/FEM3D/src/utils.hpp \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/iostream
+  /opt/homebrew/opt/petsc/include/petsctaolinesearch.h

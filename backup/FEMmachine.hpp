@@ -4,6 +4,10 @@
     2. 相关组矩阵操作
 */
 
+/*
+remark: 这是将femmesh和fem区分开来的版本
+*/
+
 #pragma once
 
 #include <petsc.h>
@@ -12,29 +16,22 @@
 #include <array>
 
 #include "mesh.hpp"
-#include "numericaltools.hpp"
-#include "utils.hpp"
 
 namespace femm
 {
     #pragma region base
-    class LagrangeFEMBase
+    class LagrangeMeshBase
     {
         /*
         所有的索引默认从0开始
         假设矩阵向量数据结构底座由petsc提供
-        矩阵均为组全域
         */
-        public:
-            LagrangeFEMBase(mesh::MeshDMPlex &mesh, int order);
 
-            virtual ~LagrangeFEMBase();
+        public: 
+            // 从DMPlex中构造FEM需要的数据结构。未来可能需要从其他格式中构造，重载构造函数即可
+            LagrangeMeshBase(mesh::MeshDMPlex &mesh, int order);
 
-            /*-------------
-            Mesh部分
-            ---------------*/
-            // 将网格点序号，坐标等提取出来
-            virtual PetscErrorCode ExtractMeshData() = 0;
+            ~LagrangeMeshBase();
 
             // 将网格点(vertex)的索引转换为有限元节点(node)的索引。传参用vec还是指针需要斟酌
             //virtual PetscErrorCode MakeVert2NodeIndices( PetscInt* &vert_indices)  = 0;
@@ -51,21 +48,7 @@ namespace femm
             virtual PetscErrorCode MakeElem2NodeMap()  = 0;
             virtual PetscErrorCode MakeElem2VertMap()  = 0;
 
-            /*--------------
-            FEM部分
-            ----------------*/
-
-            // 组装全局矩阵
-            virtual PetscErrorCode AssembleStiff()  = 0;
-
-            virtual PetscErrorCode AssembleRHS() = 0;
-
         protected:
-            /*----
-            Mesh部分
-            ----*/
-            mesh::MeshDMPlex *mesh_; // 网格数据结构
-
             PetscInt order_; // 有限元的阶数
 
             // 我们仍然需要用到网格点的坐标，用于积分计算
@@ -87,53 +70,43 @@ namespace femm
             PetscInt num_nodes_; // 节点的数量
             PetscInt num_elements_; // 元素的数量
 
-            /*----
-            FEM部分
-            ----*/
+        private:
+            mesh::MeshDMPlex *mesh_; // 网格数据结构
+
+    };
+
+    class LagrangeFEMBase
+    {
+        /*
+        矩阵均为组全域
+        */
+        public:
+            LagrangeFEMBase(LagrangeMeshBase *femmesh, int order);
+
+            virtual ~LagrangeFEMBase();
+
+            // 组装全局矩阵
+            virtual PetscErrorCode AssembleStiff() = 0;
+
+            virtual PetscErrorCode AssembleRHS() = 0;
+
+            // 获取有限元网格数据结构
+            LagrangeMeshBase* GetMesh()  { return femmesh_; }
+
+        private:
+            LagrangeMeshBase *femmesh_; // FEM网格数据结构
+            PetscInt order_; // 有限元的阶数
             
             Mat stiff_; // 全局刚度矩阵
             Mat rhs_; // 全局右端项矩阵
-
-            bool established = false;
-
     };
     #pragma endregion
 
-
     #pragma region femmesh
-    class LagrangeP1FEM : public LagrangeFEMBase
+    class LagrangeP1FEM : public 
     {
-        /*
-        P1有限元，线性有限元
-        */
-        public:
-            LagrangeP1FEM(mesh::MeshDMPlex &mesh);
 
-            ~LagrangeP1FEM();
+    }
 
-            // 提取网格数据
-            PetscErrorCode ExtractMeshData() override;
-
-            // 将网格点(vertex)的索引转换为有限元节点(node)的索引
-            PetscErrorCode MakeVert2NodeIndices()  override;
-
-            // 将网格点(vertex)的坐标转换为有限元节点(node)的坐标
-            PetscErrorCode MakeVert2NodeCoords()  override;
-
-            // 将网格单元(cell)的索引转换为有限元单元的索引
-            PetscErrorCode MakeElemIndices()  override;
-
-            PetscErrorCode MakeElem2NodeMap()  override;
-            PetscErrorCode MakeElem2VertMap()  override;
-
-            // 组装全局刚度矩阵
-            PetscErrorCode AssembleStiff() override;
-            // 组装全局右端项矩阵
-            PetscErrorCode AssembleRHS() override;
-
-            PetscErrorCode GetElem2NodeIdx(PetscInt elem_idx, PetscInt* elem2node_idx);
-            
-
-    };
     #pragma endregion
 }

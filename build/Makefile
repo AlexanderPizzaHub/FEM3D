@@ -222,30 +222,6 @@ src/FEMapplication.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FEM3D.dir/build.make CMakeFiles/FEM3D.dir/src/FEMapplication.cpp.s
 .PHONY : src/FEMapplication.cpp.s
 
-src/FEMbdrypatch.o: src/FEMbdrypatch.cpp.o
-.PHONY : src/FEMbdrypatch.o
-
-# target to build an object file
-src/FEMbdrypatch.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/FEM3D.dir/build.make CMakeFiles/FEM3D.dir/src/FEMbdrypatch.cpp.o
-.PHONY : src/FEMbdrypatch.cpp.o
-
-src/FEMbdrypatch.i: src/FEMbdrypatch.cpp.i
-.PHONY : src/FEMbdrypatch.i
-
-# target to preprocess a source file
-src/FEMbdrypatch.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/FEM3D.dir/build.make CMakeFiles/FEM3D.dir/src/FEMbdrypatch.cpp.i
-.PHONY : src/FEMbdrypatch.cpp.i
-
-src/FEMbdrypatch.s: src/FEMbdrypatch.cpp.s
-.PHONY : src/FEMbdrypatch.s
-
-# target to generate assembly for a file
-src/FEMbdrypatch.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/FEM3D.dir/build.make CMakeFiles/FEM3D.dir/src/FEMbdrypatch.cpp.s
-.PHONY : src/FEMbdrypatch.cpp.s
-
 src/FEMmachine.o: src/FEMmachine.cpp.o
 .PHONY : src/FEMmachine.o
 
@@ -269,6 +245,30 @@ src/FEMmachine.s: src/FEMmachine.cpp.s
 src/FEMmachine.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FEM3D.dir/build.make CMakeFiles/FEM3D.dir/src/FEMmachine.cpp.s
 .PHONY : src/FEMmachine.cpp.s
+
+src/FEMpatch.o: src/FEMpatch.cpp.o
+.PHONY : src/FEMpatch.o
+
+# target to build an object file
+src/FEMpatch.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FEM3D.dir/build.make CMakeFiles/FEM3D.dir/src/FEMpatch.cpp.o
+.PHONY : src/FEMpatch.cpp.o
+
+src/FEMpatch.i: src/FEMpatch.cpp.i
+.PHONY : src/FEMpatch.i
+
+# target to preprocess a source file
+src/FEMpatch.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FEM3D.dir/build.make CMakeFiles/FEM3D.dir/src/FEMpatch.cpp.i
+.PHONY : src/FEMpatch.cpp.i
+
+src/FEMpatch.s: src/FEMpatch.cpp.s
+.PHONY : src/FEMpatch.s
+
+# target to generate assembly for a file
+src/FEMpatch.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FEM3D.dir/build.make CMakeFiles/FEM3D.dir/src/FEMpatch.cpp.s
+.PHONY : src/FEMpatch.cpp.s
 
 src/fileIO.o: src/fileIO.cpp.o
 .PHONY : src/fileIO.o
@@ -294,30 +294,6 @@ src/fileIO.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FEM3D.dir/build.make CMakeFiles/FEM3D.dir/src/fileIO.cpp.s
 .PHONY : src/fileIO.cpp.s
 
-src/matrixtools.o: src/matrixtools.cpp.o
-.PHONY : src/matrixtools.o
-
-# target to build an object file
-src/matrixtools.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/FEM3D.dir/build.make CMakeFiles/FEM3D.dir/src/matrixtools.cpp.o
-.PHONY : src/matrixtools.cpp.o
-
-src/matrixtools.i: src/matrixtools.cpp.i
-.PHONY : src/matrixtools.i
-
-# target to preprocess a source file
-src/matrixtools.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/FEM3D.dir/build.make CMakeFiles/FEM3D.dir/src/matrixtools.cpp.i
-.PHONY : src/matrixtools.cpp.i
-
-src/matrixtools.s: src/matrixtools.cpp.s
-.PHONY : src/matrixtools.s
-
-# target to generate assembly for a file
-src/matrixtools.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/FEM3D.dir/build.make CMakeFiles/FEM3D.dir/src/matrixtools.cpp.s
-.PHONY : src/matrixtools.cpp.s
-
 src/mesh.o: src/mesh.cpp.o
 .PHONY : src/mesh.o
 
@@ -341,6 +317,30 @@ src/mesh.s: src/mesh.cpp.s
 src/mesh.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/FEM3D.dir/build.make CMakeFiles/FEM3D.dir/src/mesh.cpp.s
 .PHONY : src/mesh.cpp.s
+
+src/numericaltools.o: src/numericaltools.cpp.o
+.PHONY : src/numericaltools.o
+
+# target to build an object file
+src/numericaltools.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FEM3D.dir/build.make CMakeFiles/FEM3D.dir/src/numericaltools.cpp.o
+.PHONY : src/numericaltools.cpp.o
+
+src/numericaltools.i: src/numericaltools.cpp.i
+.PHONY : src/numericaltools.i
+
+# target to preprocess a source file
+src/numericaltools.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FEM3D.dir/build.make CMakeFiles/FEM3D.dir/src/numericaltools.cpp.i
+.PHONY : src/numericaltools.cpp.i
+
+src/numericaltools.s: src/numericaltools.cpp.s
+.PHONY : src/numericaltools.s
+
+# target to generate assembly for a file
+src/numericaltools.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/FEM3D.dir/build.make CMakeFiles/FEM3D.dir/src/numericaltools.cpp.s
+.PHONY : src/numericaltools.cpp.s
 
 src/test.o: src/test.cpp.o
 .PHONY : src/test.o
@@ -409,21 +409,21 @@ help:
 	@echo "... src/FEMapplication.o"
 	@echo "... src/FEMapplication.i"
 	@echo "... src/FEMapplication.s"
-	@echo "... src/FEMbdrypatch.o"
-	@echo "... src/FEMbdrypatch.i"
-	@echo "... src/FEMbdrypatch.s"
 	@echo "... src/FEMmachine.o"
 	@echo "... src/FEMmachine.i"
 	@echo "... src/FEMmachine.s"
+	@echo "... src/FEMpatch.o"
+	@echo "... src/FEMpatch.i"
+	@echo "... src/FEMpatch.s"
 	@echo "... src/fileIO.o"
 	@echo "... src/fileIO.i"
 	@echo "... src/fileIO.s"
-	@echo "... src/matrixtools.o"
-	@echo "... src/matrixtools.i"
-	@echo "... src/matrixtools.s"
 	@echo "... src/mesh.o"
 	@echo "... src/mesh.i"
 	@echo "... src/mesh.s"
+	@echo "... src/numericaltools.o"
+	@echo "... src/numericaltools.i"
+	@echo "... src/numericaltools.s"
 	@echo "... src/test.o"
 	@echo "... src/test.i"
 	@echo "... src/test.s"
