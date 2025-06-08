@@ -1,0 +1,27 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
+# The set of languages for which implicit dependencies are needed:
+set(CMAKE_DEPENDS_LANGUAGES
+  )
+
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/Users/dual/Dropbox/FEM3D/src/FEM3D.cpp" "CMakeFiles/FEM.dir/src/FEM3D.cpp.o" "gcc" "CMakeFiles/FEM.dir/src/FEM3D.cpp.o.d"
+  "/Users/dual/Dropbox/FEM3D/src/FEMapplication.cpp" "CMakeFiles/FEM.dir/src/FEMapplication.cpp.o" "gcc" "CMakeFiles/FEM.dir/src/FEMapplication.cpp.o.d"
+  "/Users/dual/Dropbox/FEM3D/src/FEMbdrypatch.cpp" "CMakeFiles/FEM.dir/src/FEMbdrypatch.cpp.o" "gcc" "CMakeFiles/FEM.dir/src/FEMbdrypatch.cpp.o.d"
+  "/Users/dual/Dropbox/FEM3D/src/FEMmachine.cpp" "CMakeFiles/FEM.dir/src/FEMmachine.cpp.o" "gcc" "CMakeFiles/FEM.dir/src/FEMmachine.cpp.o.d"
+  "/Users/dual/Dropbox/FEM3D/src/fileIO.cpp" "CMakeFiles/FEM.dir/src/fileIO.cpp.o" "gcc" "CMakeFiles/FEM.dir/src/fileIO.cpp.o.d"
+  "/Users/dual/Dropbox/FEM3D/src/matrixtools.cpp" "CMakeFiles/FEM.dir/src/matrixtools.cpp.o" "gcc" "CMakeFiles/FEM.dir/src/matrixtools.cpp.o.d"
+  "/Users/dual/Dropbox/FEM3D/src/mesh.cpp" "CMakeFiles/FEM.dir/src/mesh.cpp.o" "gcc" "CMakeFiles/FEM.dir/src/mesh.cpp.o.d"
+  "/Users/dual/Dropbox/FEM3D/src/test.cpp" "CMakeFiles/FEM.dir/src/test.cpp.o" "gcc" "CMakeFiles/FEM.dir/src/test.cpp.o.d"
+  "/Users/dual/Dropbox/FEM3D/src/utils.cpp" "CMakeFiles/FEM.dir/src/utils.cpp.o" "gcc" "CMakeFiles/FEM.dir/src/utils.cpp.o.d"
+  )
+
+# Targets to which this target links.
+set(CMAKE_TARGET_LINKED_INFO_FILES
+  )
+
+# Fortran module output directory.
+set(CMAKE_Fortran_TARGET_MODULE_DIR "")

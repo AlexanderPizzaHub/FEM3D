@@ -1,0 +1,7 @@
+/Users/dual/Dropbox/FEM3D/build/CMakeFiles/FEM3D.dir
+/Users/dual/Dropbox/FEM3D/build/CMakeFiles/edit_cache.dir
+/Users/dual/Dropbox/FEM3D/build/CMakeFiles/rebuild_cache.dir
+/Users/dual/Dropbox/FEM3D/build/CMakeFiles/list_install_components.dir
+/Users/dual/Dropbox/FEM3D/build/CMakeFiles/install.dir
+/Users/dual/Dropbox/FEM3D/build/CMakeFiles/install/local.dir
+/Users/dual/Dropbox/FEM3D/build/CMakeFiles/install/strip.dir
