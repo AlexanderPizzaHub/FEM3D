@@ -4,7 +4,7 @@
             "name": "Mac",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/Users/dual/Dropbox/FEM3D/src/"
+                "/Users/dual/Dropbox/FEM3D/src"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/clang",
