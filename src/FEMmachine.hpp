@@ -49,16 +49,16 @@ namespace femm
             virtual PetscErrorCode MakeElemIndices()  = 0;
 
             virtual PetscErrorCode MakeElem2NodeMap()  = 0;
-            virtual PetscErrorCode MakeElem2VertMap()  = 0;
 
             /*--------------
             FEM部分
             ----------------*/
 
             // 组装全局矩阵
-            virtual PetscErrorCode AssembleStiff()  = 0;
-
             virtual PetscErrorCode AssembleRHS() = 0;
+
+            mesh::MeshDMPlex &GetMesh() const { return *mesh_; }
+            PetscInt GetNumNodes() const {return num_nodes_;}
 
         protected:
             /*----
@@ -82,17 +82,9 @@ namespace femm
 
             // 这个还不清楚用petsc提供的数据格式，如何实现更好
             std::vector<std::vector<PetscInt>> elem2node_map_; // 元素到节点的映射
-            std::vector<std::vector<PetscInt>> elem2vert_map_; // 元素到网格点的映射
 
             PetscInt num_nodes_; // 节点的数量
             PetscInt num_elements_; // 元素的数量
-
-            /*----
-            FEM部分
-            ----*/
-            
-            Mat stiff_; // 全局刚度矩阵
-            Mat rhs_; // 全局右端项矩阵
 
             bool established = false;
 
@@ -124,15 +116,26 @@ namespace femm
             PetscErrorCode MakeElemIndices()  override;
 
             PetscErrorCode MakeElem2NodeMap()  override;
-            PetscErrorCode MakeElem2VertMap()  override;
 
             // 组装全局刚度矩阵
-            PetscErrorCode AssembleStiff() override;
+            PetscErrorCode AssembleStiff();
+            PetscErrorCode AssembleStiffDeg();
             // 组装全局右端项矩阵
             PetscErrorCode AssembleRHS() override;
 
             PetscErrorCode GetElem2NodeIdx(PetscInt elem_idx, PetscInt* elem2node_idx);
+
+            Mat GetStiff() const { return stiff_; }
+            Vec GetRHS() const { return rhs_; }
             
+            
+        private:
+            /*----
+                FEM部分
+                ----*/
+                
+                Mat stiff_; // 全局刚度矩阵
+                Vec rhs_; // 全局右端项矩阵
 
     };
     #pragma endregion

@@ -18,8 +18,13 @@ int main(int argc, char **argv)
     int ierr;
     PetscCall(PetscInitialize(&argc, &argv, NULL, help));
 
-    // test::TestMeshDMPlex();
-    test::TestFEMMachine();
+     //test::TestMeshDMPlex();
+     //test::TestMeshVertMap();
+   //test::TestFEMMachine();
+    //test::TestStiff();
+   // test::TestStiffDeg();
+   //test::TestPatch();
+   test::TestSolver();
     
     PetscCall(PetscFinalize());
     return 0;

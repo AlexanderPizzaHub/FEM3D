@@ -17,21 +17,31 @@ namespace application
     {
         public:
             // 暂时不考虑外部提供数据文件
-            PoissonDirichlet(std::string meshfile);
+            PoissonDirichlet(femm::LagrangeP1FEM &fem);
             ~PoissonDirichlet();
+
+            PetscErrorCode AddBC(fempatch::FEMPatchBase *patch);
+        
 
             PetscErrorCode Prepare(); // 组矩阵，完成所有矩阵final assembly
             PetscErrorCode Solve(); // 解矩阵
 
+            Mat &GetSolverStiff(){return stiff_sub;};
+            Vec &GetSolverRHS(){return rhs_sub;};
+            Vec &GetSolverSol(){return sol;};
+            KSP &GetSolverKSP(){return ksp;};
+
 
         private:
-            femm::LagrangeFEMBase *fem_; // 有限元方法数据结构
+            femm::LagrangeP1FEM *fem_; // 有限元方法数据结构
+            std::vector<fempatch::FEMPatchBase*> patches_; // 边界处理类
 
             // 如果用子矩阵法处理边界，那么必须有额外一个矩阵存储子矩阵，我们记为stiff_sub
             // 如果用罚方法，置一法等等不改变矩阵大小的方法，我们可以直接在原矩阵上做修改，以下私有变量可以存为原矩阵的引用
             // 我们暂时使用子矩阵法
             Mat stiff_sub;
             Vec rhs_sub;
+            Vec sol_sub;
             Vec sol;
             KSP ksp;
 

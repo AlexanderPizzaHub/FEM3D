@@ -10,6 +10,7 @@
 #include <string>
 #include <vector>
 #include <array>
+#include <cassert>
 #include "numericaltools.hpp"
 #include "utils.hpp"
 
@@ -27,11 +28,17 @@ namespace mesh
 
         // 根据label获取对应的网格点序号。
         PetscErrorCode GetISbyLabel(PetscInt label_index, IS &is);
+        
+        // FEM需要cell到网格点的映射
+        PetscErrorCode MakeCell2VertMap();
+        PetscErrorCode GetCell2VertIdx(PetscInt cell_idx, PetscInt* cell2node_idx);
+        PetscErrorCode GetFace2VertIdx(PetscInt face_idx, PetscInt* face2node_idx);
 
         const DM &GetDM() const { return dm_; }
         const DMLabel &GetLabel() const { return label_; }
         const IS &GetBdryIS() const { return bdryIS_; }
         const IS &GetInnerIS() const { return innerIS_; }
+        std::vector<std::vector<PetscInt>> &GetCell2VertMap() { return cell2vert_map_; }
 
     private:
         // 用于手动标记边界的函数。计划在未来废弃。
@@ -40,6 +47,8 @@ namespace mesh
         DM dm_;
         DMLabel label_; // 网格点的标签，用于区分边界，多介质区等。
         IS bdryIS_, innerIS_; // 边界和内点的索引集，用于标记边界和内点。这里没有考虑到混合边界的情况。该功能计划在未来改进。
+
+        std::vector<std::vector<PetscInt>> cell2vert_map_; // 元素到网格点的映射
 
     };
 }
