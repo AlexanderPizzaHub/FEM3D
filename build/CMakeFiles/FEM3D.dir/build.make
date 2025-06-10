@@ -220,8 +220,8 @@ FEM3D: CMakeFiles/FEM3D.dir/src/numericaltools.cpp.o
 FEM3D: CMakeFiles/FEM3D.dir/src/test.cpp.o
 FEM3D: CMakeFiles/FEM3D.dir/src/utils.cpp.o
 FEM3D: CMakeFiles/FEM3D.dir/build.make
-FEM3D: /Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/lib/libmpi.dylib
-FEM3D: /Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/lib/libpetsc.dylib
+FEM3D: /Users/dual/Documents/projects/petsc/arch-darwin-cxx-opt/lib/libmpi.dylib
+FEM3D: /Users/dual/Documents/projects/petsc/arch-darwin-cxx-opt/lib/libpetsc.dylib
 FEM3D: CMakeFiles/FEM3D.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/dual/Dropbox/FEM3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable FEM3D"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/FEM3D.dir/link.txt --verbose=$(VERBOSE)

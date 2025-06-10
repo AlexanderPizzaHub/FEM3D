@@ -4,7 +4,7 @@
 # compile CXX with /Library/Developer/CommandLineTools/usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/opt/homebrew/opt/petsc/include -I/Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/include
+CXX_INCLUDES = -I/opt/homebrew/opt/petsc/include -I/Users/dual/Documents/projects/petsc/arch-darwin-cxx-opt/include
 
 CXX_FLAGSarm64 = -std=c++11 -O3 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk
 

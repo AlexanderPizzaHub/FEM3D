@@ -960,8 +960,8 @@ CMakeFiles/FEM3D.dir/src/numericaltools.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/print \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/unistd.h \
   /opt/homebrew/opt/petsc/include/petsccxxcomplexfix.h \
-  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/include/mpi.h \
-  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/include/mpi_portable_platform.h \
+  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-opt/include/mpi.h \
+  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-opt/include/mpi_portable_platform.h \
   /opt/homebrew/opt/petsc/include/petscmath.h \
   /opt/homebrew/opt/petsc/include/petscerror.h \
   /opt/homebrew/opt/petsc/include/petscviewertypes.h \
