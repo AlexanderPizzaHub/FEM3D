@@ -20,11 +20,12 @@ int main(int argc, char **argv)
 
      //test::TestMeshDMPlex();
      //test::TestMeshVertMap();
-   test::TestFEMMachine();
-    //test::TestStiff();
+   //test::TestFEMMachine();
+   //test::TestStiff();
    // test::TestStiffDeg();
    //test::TestPatch();
    //test::TestSolver();
+   test::TestMixed();
     
     PetscCall(PetscFinalize());
     return 0;

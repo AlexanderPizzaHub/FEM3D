@@ -962,8 +962,8 @@ CMakeFiles/FEM3D.dir/src/Const.cpp.o: /Users/dual/Dropbox/FEM3D/src/Const.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/print \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/unistd.h \
   /opt/homebrew/opt/petsc/include/petsccxxcomplexfix.h \
-  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-opt/include/mpi.h \
-  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-opt/include/mpi_portable_platform.h \
+  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/include/mpi.h \
+  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/include/mpi_portable_platform.h \
   /opt/homebrew/opt/petsc/include/petscmath.h \
   /opt/homebrew/opt/petsc/include/petscerror.h \
   /opt/homebrew/opt/petsc/include/petscviewertypes.h \
@@ -1990,8 +1990,8 @@ CMakeFiles/FEM3D.dir/src/FEM3D.cpp.o: /Users/dual/Dropbox/FEM3D/src/FEM3D.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/complex \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/sstream \
   /opt/homebrew/opt/petsc/include/petsccxxcomplexfix.h \
-  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-opt/include/mpi.h \
-  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-opt/include/mpi_portable_platform.h \
+  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/include/mpi.h \
+  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/include/mpi_portable_platform.h \
   /opt/homebrew/opt/petsc/include/petscmath.h \
   /opt/homebrew/opt/petsc/include/petscerror.h \
   /opt/homebrew/opt/petsc/include/petscviewertypes.h \
@@ -3067,8 +3067,8 @@ CMakeFiles/FEM3D.dir/src/FEMapplication.cpp.o: /Users/dual/Dropbox/FEM3D/src/FEM
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/print \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/unistd.h \
   /opt/homebrew/opt/petsc/include/petsccxxcomplexfix.h \
-  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-opt/include/mpi.h \
-  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-opt/include/mpi_portable_platform.h \
+  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/include/mpi.h \
+  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/include/mpi_portable_platform.h \
   /opt/homebrew/opt/petsc/include/petscmath.h \
   /opt/homebrew/opt/petsc/include/petscerror.h \
   /opt/homebrew/opt/petsc/include/petscviewertypes.h \
@@ -4106,8 +4106,8 @@ CMakeFiles/FEM3D.dir/src/FEMmachine.cpp.o: /Users/dual/Dropbox/FEM3D/src/FEMmach
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/print \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/unistd.h \
   /opt/homebrew/opt/petsc/include/petsccxxcomplexfix.h \
-  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-opt/include/mpi.h \
-  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-opt/include/mpi_portable_platform.h \
+  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/include/mpi.h \
+  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/include/mpi_portable_platform.h \
   /opt/homebrew/opt/petsc/include/petscmath.h \
   /opt/homebrew/opt/petsc/include/petscerror.h \
   /opt/homebrew/opt/petsc/include/petscviewertypes.h \
@@ -5142,8 +5142,8 @@ CMakeFiles/FEM3D.dir/src/FEMpatch.cpp.o: /Users/dual/Dropbox/FEM3D/src/FEMpatch.
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/print \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/unistd.h \
   /opt/homebrew/opt/petsc/include/petsccxxcomplexfix.h \
-  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-opt/include/mpi.h \
-  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-opt/include/mpi_portable_platform.h \
+  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/include/mpi.h \
+  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/include/mpi_portable_platform.h \
   /opt/homebrew/opt/petsc/include/petscmath.h \
   /opt/homebrew/opt/petsc/include/petscerror.h \
   /opt/homebrew/opt/petsc/include/petscviewertypes.h \
@@ -7145,8 +7145,8 @@ CMakeFiles/FEM3D.dir/src/mesh.cpp.o: /Users/dual/Dropbox/FEM3D/src/mesh.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/print \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/unistd.h \
   /opt/homebrew/opt/petsc/include/petsccxxcomplexfix.h \
-  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-opt/include/mpi.h \
-  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-opt/include/mpi_portable_platform.h \
+  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/include/mpi.h \
+  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/include/mpi_portable_platform.h \
   /opt/homebrew/opt/petsc/include/petscmath.h \
   /opt/homebrew/opt/petsc/include/petscerror.h \
   /opt/homebrew/opt/petsc/include/petscviewertypes.h \
@@ -8180,8 +8180,8 @@ CMakeFiles/FEM3D.dir/src/numericaltools.cpp.o: /Users/dual/Dropbox/FEM3D/src/num
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/print \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/unistd.h \
   /opt/homebrew/opt/petsc/include/petsccxxcomplexfix.h \
-  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-opt/include/mpi.h \
-  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-opt/include/mpi_portable_platform.h \
+  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/include/mpi.h \
+  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/include/mpi_portable_platform.h \
   /opt/homebrew/opt/petsc/include/petscmath.h \
   /opt/homebrew/opt/petsc/include/petscerror.h \
   /opt/homebrew/opt/petsc/include/petscviewertypes.h \
@@ -9208,8 +9208,8 @@ CMakeFiles/FEM3D.dir/src/test.cpp.o: /Users/dual/Dropbox/FEM3D/src/test.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/print \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/unistd.h \
   /opt/homebrew/opt/petsc/include/petsccxxcomplexfix.h \
-  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-opt/include/mpi.h \
-  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-opt/include/mpi_portable_platform.h \
+  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/include/mpi.h \
+  /Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/include/mpi_portable_platform.h \
   /opt/homebrew/opt/petsc/include/petscmath.h \
   /opt/homebrew/opt/petsc/include/petscerror.h \
   /opt/homebrew/opt/petsc/include/petscviewertypes.h \
@@ -9419,9 +9419,7 @@ CMakeFiles/FEM3D.dir/src/utils.cpp.o: /Users/dual/Dropbox/FEM3D/src/utils.cpp
 
 /opt/homebrew/opt/petsc/include/petscmath.h:
 
-/Users/dual/Documents/projects/petsc/arch-darwin-cxx-opt/include/mpi_portable_platform.h:
-
-/Users/dual/Documents/projects/petsc/arch-darwin-cxx-opt/include/mpi.h:
+/Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/include/mpi.h:
 
 /opt/homebrew/opt/petsc/include/petsccxxcomplexfix.h:
 
@@ -10216,6 +10214,8 @@ CMakeFiles/FEM3D.dir/src/utils.cpp.o: /Users/dual/Dropbox/FEM3D/src/utils.cpp
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__utility/forward_like.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__algorithm/sort.h:
+
+/Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/include/mpi_portable_platform.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/__utility/cmp.h:
 

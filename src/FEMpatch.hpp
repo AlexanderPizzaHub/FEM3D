@@ -4,7 +4,7 @@
 负责给网格点打标签。
 */
 
-#pragma once 
+#pragma once
 #include <petsc.h>
 #include <iostream>
 #include "FEMmachine.hpp"
@@ -17,74 +17,49 @@ namespace fempatch
 {
     class FEMPatchBase
     {
-        public:
-            FEMPatchBase(femm::LagrangeFEMBase &fem);
-            virtual ~FEMPatchBase() = default;
+    public:
+        FEMPatchBase(femm::LagrangeFEMBase &fem, PetscInt patchlabel);
+        virtual ~FEMPatchBase() = default;
 
-            virtual PetscErrorCode ApplyBC(const Mat stiff_glb, Mat& stiff_inner, const Vec bc_glb, Vec& bc_inner) = 0; // 应用边界条件
+        PetscErrorCode BoundaryProject(PetscScalar (*func)(PetscScalar x, PetscScalar y, PetscScalar z));
 
-            const PetscInt GetPatchType() const {return patch_type_;};
+        const PetscInt GetPatchType() const { return patch_type_; };
+        const Vec GetData() const {return data;};
 
-        protected:
-            femm::LagrangeFEMBase *fem_;
+    protected:
+        femm::LagrangeFEMBase *fem_;
 
-            PetscInt patch_type_, num_patch_nodes_;
+        PetscInt patch_type_, num_patch_nodes_;
+        PetscInt *patch_node_indices_; // 补丁节点的索引集
+        Vec data;
 
-            virtual PetscErrorCode MakePatchNodeIndices() = 0;
-            
-            PetscInt* patch_nodes_indices_; // 补丁节点的索引集
-
-    };
-
-    class FEMPatchDirichletZero : public FEMPatchBase
-    {
-        /*
-        Dirichlet边界条件，零值
-        */
-        public:
-            FEMPatchDirichletZero(femm::LagrangeFEMBase &fem);
-            ~FEMPatchDirichletZero() override;
-
-            PetscErrorCode ApplyBC(const Mat stiff_glb, Mat& stiff_inner, const Vec bc_glb, Vec& bc_inner) override;
-            PetscErrorCode AugVec(const Vec vec_original, Vec& vec_aug);
-
-        private:
-
-            IS inner_nodes_is_; // 内节点的索引集 
-            PetscErrorCode MakePatchNodeIndices() override;
-
+        PetscErrorCode MakePatchNodeIndices(PetscInt patchlabel);
     };
 
     class FEMPatchDirichlet : public FEMPatchBase
     {
-        public:
-            FEMPatchDirichlet(femm::LagrangeFEMBase &fem, PetscInt patchlabel);
-            ~FEMPatchDirichlet();
+    public:
+        FEMPatchDirichlet(femm::LagrangeFEMBase &fem, PetscInt patchlabel);
+        ~FEMPatchDirichlet();
 
-            PetscErrorCode BoundaryProject(PetscScalar (*func)(PetscScalar x, PetscScalar y, PetscScalar z), Vec &data);
+        PetscErrorCode ApplyBC(const Mat stiff_glb, Mat &stiff_inner, const Vec bc_glb, Vec &bc_inner);
+        PetscErrorCode AugVec(const Vec vec_original, Vec &vec_aug);
 
-            PetscErrorCode ApplyBC(const Mat stiff_glb, Mat& stiff_inner, const Vec bc_glb, Vec& bc_inner) override;
-            PetscErrorCode AugVec(const Vec vec_original, Vec& vec_aug);
+    private:
+        PetscInt num_inner_nodes_;
+        PetscInt *inner_node_indices_;
 
-
-        private:
-            PetscErrorCode MakePatchNodeIndices(PetscInt patchlabel);
-            IS inner_nodes_is_;
-            Vec data;
+        PetscErrorCode MakeInnerNodeIndices();
     };
 
-    class FEMPatchNeumann : public FEMPatchBase 
+    class FEMPatchNeumann : public FEMPatchBase
     {
-        public:
-            FEMPatchNeumann(femm::LagrangeFEMBase &fem, PetscInt patchlabel);
-            ~FEMPatchNeumann();
+    public:
+        FEMPatchNeumann(femm::LagrangeFEMBase &fem, PetscInt patchlabel);
+        ~FEMPatchNeumann();
 
-            PetscErrorCode ApplyBC(const Mat stiff_glb, Mat& stiff_inner, const Vec bc_glb, Vec& bc_inner) override;
-            PetscErrorCode BoundaryProject(PetscScalar (*func)(PetscScalar x, PetscScalar y, PetscScalar z), Vec &data);
-         
-        private:
-            PetscErrorCode MakePatchNodeIndices() override;
-            Vec data;
+        PetscErrorCode ApplyBC(Vec& rhs);
+        PetscErrorCode ApplyBCBySource(Vec& source);
+
     };
 }
-

@@ -43,10 +43,11 @@ namespace mesh
     private:
         // 用于手动标记边界的函数。计划在未来废弃。
         PetscErrorCode MarkCubeBoundary( PetscScalar left, PetscScalar right, PetscScalar front, PetscScalar back, PetscScalar top, PetscScalar bottom);
+        PetscErrorCode MarkMixBoundary( PetscScalar left, PetscScalar right, PetscScalar front, PetscScalar back, PetscScalar top, PetscScalar bottom);
 
         DM dm_;
         DMLabel label_; // 网格点的标签，用于区分边界，多介质区等。
-        IS bdryIS_, innerIS_; // 边界和内点的索引集，用于标记边界和内点。这里没有考虑到混合边界的情况。该功能计划在未来改进。
+        //IS bdryIS_, innerIS_; // 边界和内点的索引集，用于标记边界和内点。这里没有考虑到混合边界的情况。该功能计划在未来改进。
 
         std::vector<std::vector<PetscInt>> cell2vert_map_; // 元素到网格点的映射
 

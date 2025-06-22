@@ -36,16 +36,16 @@ file(GLOB SOURCES "src/*")
 add_executable(FEM3D ${SOURCES})
 
 include_directories(
-    #/Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/include
-    /Users/dual/Documents/projects/petsc/arch-darwin-cxx-opt/include
+    /Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/include
+    #/Users/dual/Documents/projects/petsc/arch-darwin-cxx-opt/include
 )
 
 target_include_directories(FEM3D PUBLIC ${PETSC_INCLUDE_DIRS})
 #TARGET_LINK_LIBRARIES(FEM ${PETSC_LINK_LIBRARIES})
-#TARGET_LINK_LIBRARIES(FEM3D /Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/lib/libmpi.dylib)
-#TARGET_LINK_LIBRARIES(FEM3D /Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/lib/libpetsc.dylib)
-TARGET_LINK_LIBRARIES(FEM3D /Users/dual/Documents/projects/petsc/arch-darwin-cxx-opt/lib/libmpi.dylib)
-TARGET_LINK_LIBRARIES(FEM3D /Users/dual/Documents/projects/petsc/arch-darwin-cxx-opt/lib/libpetsc.dylib)
+TARGET_LINK_LIBRARIES(FEM3D /Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/lib/libmpi.dylib)
+TARGET_LINK_LIBRARIES(FEM3D /Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/lib/libpetsc.dylib)
+#TARGET_LINK_LIBRARIES(FEM3D /Users/dual/Documents/projects/petsc/arch-darwin-cxx-opt/lib/libmpi.dylib)
+#TARGET_LINK_LIBRARIES(FEM3D /Users/dual/Documents/projects/petsc/arch-darwin-cxx-opt/lib/libpetsc.dylib)
 
 install(TARGETS FEM3D DESTINATION bin)
 

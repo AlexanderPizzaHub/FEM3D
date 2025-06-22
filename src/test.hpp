@@ -26,4 +26,6 @@ namespace test
     PetscErrorCode TestPatch();
 
     PetscErrorCode TestSolver();
+
+    PetscErrorCode TestMixed();
 }

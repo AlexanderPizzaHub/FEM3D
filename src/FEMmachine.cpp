@@ -78,12 +78,12 @@ namespace femm
         IS patchIS;
         PetscInt patch_size;
         const PetscInt *vertex_indices;
-        for(PetscInt patch_idx = 1; patch_idx < num_patches; patch_idx++)
+        for(PetscInt patch_idx = 0; patch_idx < num_patches; patch_idx++)
         {
             PetscCall(DMLabelGetStratumIS(vertex_label, patch_idx, &patchIS));
 
             PetscCall(ISGetLocalSize(patchIS, &patch_size));
-            PetscCall(ISShift(patchIS, -node_start, patchIS));
+            //PetscCall(ISShift(patchIS, -node_start, patchIS));
 
             PetscCall(ISGetIndices(patchIS, &vertex_indices));
     
@@ -92,6 +92,7 @@ namespace femm
             {
                 node_label_idx.push_back(vertex_indices[subidx]);
             }
+            
             node_label_indices_.push_back(node_label_idx);
         }
         //std::cout << num_patches<<std::endl;

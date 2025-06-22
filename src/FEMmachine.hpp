@@ -61,6 +61,7 @@ namespace femm
 
             mesh::MeshDMPlex &GetMesh() const { return *mesh_; }
             PetscInt GetNumNodes() const {return num_nodes_;}
+            const Vec GetNodeCoords() const {return node_coords_;};
             const std::vector<std::vector<PetscInt>>  GetNodeLabels() const {return node_label_indices_;};
             
 
