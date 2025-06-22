@@ -28,5 +28,14 @@ namespace numerical
         }
     };
 
+    PetscErrorCode VecMatVecInner(const Vec v1, const Mat M, const Vec v2, PetscScalar &result);
+
+    PetscErrorCode VecErrL2(const Vec vec1, const Vec vec2, PetscScalar& err);
+    PetscErrorCode VecErrL2Weight(const Vec vec1, const Mat M, const Vec vec2, PetscScalar& err);
+
+    PetscErrorCode VecErrL2Rel(const Vec vec1, const Vec vec2, PetscScalar& err);
+    PetscErrorCode VecErrL2RelWeight(const Vec vec1, const Mat M, const Vec vec2, PetscScalar& err);
+
+    PetscErrorCode VecErrLinf(const Vec vec1, const Vec vec2, PetscScalar& err);
 
 }

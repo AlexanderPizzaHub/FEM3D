@@ -141,7 +141,7 @@ namespace test
 
     PetscErrorCode TestSolver()
     {
-        const char *filename = "../meshfile/cubefine.msh"; // 测试文件
+        const char *filename = "../meshfile/cubefine1.msh"; // 测试文件
         std::__1::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
 
         mesh::MeshDMPlex mesh(filename);
@@ -188,7 +188,18 @@ namespace test
         double durattot = std::chrono::duration_cast<std::chrono::milliseconds>(now6-now1).count();
         std::cout << "total solve time: " <<durattot<< "ms" << std::endl;
 
-        //Vec &solution = poisson.GetSolverSol();
+
+        Vec &solution = poisson.GetSolverSol();
+        Vec sol_exact;
+        PetscCall(fem.DomainProject(constants::Exact,sol_exact));
+        PetscScalar err;
+        Mat stiff = poisson.GetSolverStiff();
+        
+        //PetscCall(numerical::VecErrL2Rel(solution,sol_exact,err));
+        
+        PetscCall(numerical::VecErrL2(solution,sol_exact,err));
+        std::cout << "rel L2 err: " << err << std::endl;
+        //PetscCall(VecView(sol_exact,PETSC_VIEWER_STDOUT_WORLD));
         //PetscCall(VecView(solution,PETSC_VIEWER_STDOUT_WORLD));
 
         return 0;

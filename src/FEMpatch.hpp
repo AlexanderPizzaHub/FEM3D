@@ -22,16 +22,17 @@ namespace fempatch
             virtual ~FEMPatchBase() = default;
 
             virtual PetscErrorCode ApplyBC(const Mat stiff_glb, Mat& stiff_inner, const Vec bc_glb, Vec& bc_inner) = 0; // 应用边界条件
-            virtual PetscErrorCode AugVec(const Vec vec_original, Vec& vec_aug) = 0;
+
+            const PetscInt GetPatchType() const {return patch_type_;};
 
         protected:
             femm::LagrangeFEMBase *fem_;
 
+            PetscInt patch_type_, num_patch_nodes_;
+
             virtual PetscErrorCode MakePatchNodeIndices() = 0;
             
-
-            IS inner_nodes_is_; // 内节点的索引集 // 这个不应该有
-            IS patch_nodes_is_; // 补丁节点的索引集
+            PetscInt* patch_nodes_indices_; // 补丁节点的索引集
 
     };
 
@@ -45,11 +46,45 @@ namespace fempatch
             ~FEMPatchDirichletZero() override;
 
             PetscErrorCode ApplyBC(const Mat stiff_glb, Mat& stiff_inner, const Vec bc_glb, Vec& bc_inner) override;
-            PetscErrorCode AugVec(const Vec vec_original, Vec& vec_aug) override;
+            PetscErrorCode AugVec(const Vec vec_original, Vec& vec_aug);
 
         private:
+
+            IS inner_nodes_is_; // 内节点的索引集 
             PetscErrorCode MakePatchNodeIndices() override;
 
+    };
+
+    class FEMPatchDirichlet : public FEMPatchBase
+    {
+        public:
+            FEMPatchDirichlet(femm::LagrangeFEMBase &fem, PetscInt patchlabel);
+            ~FEMPatchDirichlet();
+
+            PetscErrorCode BoundaryProject(PetscScalar (*func)(PetscScalar x, PetscScalar y, PetscScalar z), Vec &data);
+
+            PetscErrorCode ApplyBC(const Mat stiff_glb, Mat& stiff_inner, const Vec bc_glb, Vec& bc_inner) override;
+            PetscErrorCode AugVec(const Vec vec_original, Vec& vec_aug);
+
+
+        private:
+            PetscErrorCode MakePatchNodeIndices(PetscInt patchlabel);
+            IS inner_nodes_is_;
+            Vec data;
+    };
+
+    class FEMPatchNeumann : public FEMPatchBase 
+    {
+        public:
+            FEMPatchNeumann(femm::LagrangeFEMBase &fem, PetscInt patchlabel);
+            ~FEMPatchNeumann();
+
+            PetscErrorCode ApplyBC(const Mat stiff_glb, Mat& stiff_inner, const Vec bc_glb, Vec& bc_inner) override;
+            PetscErrorCode BoundaryProject(PetscScalar (*func)(PetscScalar x, PetscScalar y, PetscScalar z), Vec &data);
+         
+        private:
+            PetscErrorCode MakePatchNodeIndices() override;
+            Vec data;
     };
 }
 

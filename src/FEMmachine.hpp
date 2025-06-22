@@ -55,10 +55,14 @@ namespace femm
             ----------------*/
 
             // 组装全局矩阵
-            virtual PetscErrorCode AssembleRHS() = 0;
+            virtual PetscErrorCode AssembleRHS(Vec data) = 0;
+
+            virtual PetscErrorCode DomainProject(PetscScalar (*func)(PetscScalar x, PetscScalar y, PetscScalar z), Vec &data) = 0;
 
             mesh::MeshDMPlex &GetMesh() const { return *mesh_; }
             PetscInt GetNumNodes() const {return num_nodes_;}
+            const std::vector<std::vector<PetscInt>>  GetNodeLabels() const {return node_label_indices_;};
+            
 
         protected:
             /*----
@@ -74,7 +78,10 @@ namespace femm
             Vec vert_coords_; // 网格点的坐标
 
             Vec node_indices_; // 节点索引
-            Vec node_labels_; // 节点标签，用于标记节点所属的元素类型
+            std::vector<std::vector<PetscInt>> node_label_indices_;
+            //DMLabel node_labels_;
+            //Vec node_labels_; // 节点标签，用于标记节点所属的元素类型
+            
 
             Vec node_coords_; // 节点坐标
 
@@ -120,10 +127,15 @@ namespace femm
             // 组装全局刚度矩阵
             PetscErrorCode AssembleStiff();
             PetscErrorCode AssembleStiffDeg();
+
+            // 组装全局质量矩阵
+
             // 组装全局右端项矩阵
-            PetscErrorCode AssembleRHS() override;
+            PetscErrorCode AssembleRHS(Vec data) override;
 
             PetscErrorCode GetElem2NodeIdx(PetscInt elem_idx, PetscInt* elem2node_idx);
+
+            PetscErrorCode DomainProject(PetscScalar (*func)(PetscScalar x, PetscScalar y,PetscScalar z), Vec &data) override;
 
             Mat GetStiff() const { return stiff_; }
             Vec GetRHS() const { return rhs_; }

@@ -69,10 +69,24 @@ include CMakeFiles/FEM3D.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/FEM3D.dir/flags.make
 
+CMakeFiles/FEM3D.dir/src/Const.cpp.o: CMakeFiles/FEM3D.dir/flags.make
+CMakeFiles/FEM3D.dir/src/Const.cpp.o: /Users/dual/Dropbox/FEM3D/src/Const.cpp
+CMakeFiles/FEM3D.dir/src/Const.cpp.o: CMakeFiles/FEM3D.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dual/Dropbox/FEM3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/FEM3D.dir/src/Const.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FEM3D.dir/src/Const.cpp.o -MF CMakeFiles/FEM3D.dir/src/Const.cpp.o.d -o CMakeFiles/FEM3D.dir/src/Const.cpp.o -c /Users/dual/Dropbox/FEM3D/src/Const.cpp
+
+CMakeFiles/FEM3D.dir/src/Const.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FEM3D.dir/src/Const.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/dual/Dropbox/FEM3D/src/Const.cpp > CMakeFiles/FEM3D.dir/src/Const.cpp.i
+
+CMakeFiles/FEM3D.dir/src/Const.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FEM3D.dir/src/Const.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/dual/Dropbox/FEM3D/src/Const.cpp -o CMakeFiles/FEM3D.dir/src/Const.cpp.s
+
 CMakeFiles/FEM3D.dir/src/FEM3D.cpp.o: CMakeFiles/FEM3D.dir/flags.make
 CMakeFiles/FEM3D.dir/src/FEM3D.cpp.o: /Users/dual/Dropbox/FEM3D/src/FEM3D.cpp
 CMakeFiles/FEM3D.dir/src/FEM3D.cpp.o: CMakeFiles/FEM3D.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dual/Dropbox/FEM3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/FEM3D.dir/src/FEM3D.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dual/Dropbox/FEM3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/FEM3D.dir/src/FEM3D.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FEM3D.dir/src/FEM3D.cpp.o -MF CMakeFiles/FEM3D.dir/src/FEM3D.cpp.o.d -o CMakeFiles/FEM3D.dir/src/FEM3D.cpp.o -c /Users/dual/Dropbox/FEM3D/src/FEM3D.cpp
 
 CMakeFiles/FEM3D.dir/src/FEM3D.cpp.i: cmake_force
@@ -86,7 +100,7 @@ CMakeFiles/FEM3D.dir/src/FEM3D.cpp.s: cmake_force
 CMakeFiles/FEM3D.dir/src/FEMapplication.cpp.o: CMakeFiles/FEM3D.dir/flags.make
 CMakeFiles/FEM3D.dir/src/FEMapplication.cpp.o: /Users/dual/Dropbox/FEM3D/src/FEMapplication.cpp
 CMakeFiles/FEM3D.dir/src/FEMapplication.cpp.o: CMakeFiles/FEM3D.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dual/Dropbox/FEM3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/FEM3D.dir/src/FEMapplication.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dual/Dropbox/FEM3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/FEM3D.dir/src/FEMapplication.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FEM3D.dir/src/FEMapplication.cpp.o -MF CMakeFiles/FEM3D.dir/src/FEMapplication.cpp.o.d -o CMakeFiles/FEM3D.dir/src/FEMapplication.cpp.o -c /Users/dual/Dropbox/FEM3D/src/FEMapplication.cpp
 
 CMakeFiles/FEM3D.dir/src/FEMapplication.cpp.i: cmake_force
@@ -100,7 +114,7 @@ CMakeFiles/FEM3D.dir/src/FEMapplication.cpp.s: cmake_force
 CMakeFiles/FEM3D.dir/src/FEMmachine.cpp.o: CMakeFiles/FEM3D.dir/flags.make
 CMakeFiles/FEM3D.dir/src/FEMmachine.cpp.o: /Users/dual/Dropbox/FEM3D/src/FEMmachine.cpp
 CMakeFiles/FEM3D.dir/src/FEMmachine.cpp.o: CMakeFiles/FEM3D.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dual/Dropbox/FEM3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/FEM3D.dir/src/FEMmachine.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dual/Dropbox/FEM3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/FEM3D.dir/src/FEMmachine.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FEM3D.dir/src/FEMmachine.cpp.o -MF CMakeFiles/FEM3D.dir/src/FEMmachine.cpp.o.d -o CMakeFiles/FEM3D.dir/src/FEMmachine.cpp.o -c /Users/dual/Dropbox/FEM3D/src/FEMmachine.cpp
 
 CMakeFiles/FEM3D.dir/src/FEMmachine.cpp.i: cmake_force
@@ -114,7 +128,7 @@ CMakeFiles/FEM3D.dir/src/FEMmachine.cpp.s: cmake_force
 CMakeFiles/FEM3D.dir/src/FEMpatch.cpp.o: CMakeFiles/FEM3D.dir/flags.make
 CMakeFiles/FEM3D.dir/src/FEMpatch.cpp.o: /Users/dual/Dropbox/FEM3D/src/FEMpatch.cpp
 CMakeFiles/FEM3D.dir/src/FEMpatch.cpp.o: CMakeFiles/FEM3D.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dual/Dropbox/FEM3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/FEM3D.dir/src/FEMpatch.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dual/Dropbox/FEM3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/FEM3D.dir/src/FEMpatch.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FEM3D.dir/src/FEMpatch.cpp.o -MF CMakeFiles/FEM3D.dir/src/FEMpatch.cpp.o.d -o CMakeFiles/FEM3D.dir/src/FEMpatch.cpp.o -c /Users/dual/Dropbox/FEM3D/src/FEMpatch.cpp
 
 CMakeFiles/FEM3D.dir/src/FEMpatch.cpp.i: cmake_force
@@ -128,7 +142,7 @@ CMakeFiles/FEM3D.dir/src/FEMpatch.cpp.s: cmake_force
 CMakeFiles/FEM3D.dir/src/fileIO.cpp.o: CMakeFiles/FEM3D.dir/flags.make
 CMakeFiles/FEM3D.dir/src/fileIO.cpp.o: /Users/dual/Dropbox/FEM3D/src/fileIO.cpp
 CMakeFiles/FEM3D.dir/src/fileIO.cpp.o: CMakeFiles/FEM3D.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dual/Dropbox/FEM3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/FEM3D.dir/src/fileIO.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dual/Dropbox/FEM3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/FEM3D.dir/src/fileIO.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FEM3D.dir/src/fileIO.cpp.o -MF CMakeFiles/FEM3D.dir/src/fileIO.cpp.o.d -o CMakeFiles/FEM3D.dir/src/fileIO.cpp.o -c /Users/dual/Dropbox/FEM3D/src/fileIO.cpp
 
 CMakeFiles/FEM3D.dir/src/fileIO.cpp.i: cmake_force
@@ -142,7 +156,7 @@ CMakeFiles/FEM3D.dir/src/fileIO.cpp.s: cmake_force
 CMakeFiles/FEM3D.dir/src/mesh.cpp.o: CMakeFiles/FEM3D.dir/flags.make
 CMakeFiles/FEM3D.dir/src/mesh.cpp.o: /Users/dual/Dropbox/FEM3D/src/mesh.cpp
 CMakeFiles/FEM3D.dir/src/mesh.cpp.o: CMakeFiles/FEM3D.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dual/Dropbox/FEM3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/FEM3D.dir/src/mesh.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dual/Dropbox/FEM3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/FEM3D.dir/src/mesh.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FEM3D.dir/src/mesh.cpp.o -MF CMakeFiles/FEM3D.dir/src/mesh.cpp.o.d -o CMakeFiles/FEM3D.dir/src/mesh.cpp.o -c /Users/dual/Dropbox/FEM3D/src/mesh.cpp
 
 CMakeFiles/FEM3D.dir/src/mesh.cpp.i: cmake_force
@@ -156,7 +170,7 @@ CMakeFiles/FEM3D.dir/src/mesh.cpp.s: cmake_force
 CMakeFiles/FEM3D.dir/src/numericaltools.cpp.o: CMakeFiles/FEM3D.dir/flags.make
 CMakeFiles/FEM3D.dir/src/numericaltools.cpp.o: /Users/dual/Dropbox/FEM3D/src/numericaltools.cpp
 CMakeFiles/FEM3D.dir/src/numericaltools.cpp.o: CMakeFiles/FEM3D.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dual/Dropbox/FEM3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/FEM3D.dir/src/numericaltools.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dual/Dropbox/FEM3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/FEM3D.dir/src/numericaltools.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FEM3D.dir/src/numericaltools.cpp.o -MF CMakeFiles/FEM3D.dir/src/numericaltools.cpp.o.d -o CMakeFiles/FEM3D.dir/src/numericaltools.cpp.o -c /Users/dual/Dropbox/FEM3D/src/numericaltools.cpp
 
 CMakeFiles/FEM3D.dir/src/numericaltools.cpp.i: cmake_force
@@ -170,7 +184,7 @@ CMakeFiles/FEM3D.dir/src/numericaltools.cpp.s: cmake_force
 CMakeFiles/FEM3D.dir/src/test.cpp.o: CMakeFiles/FEM3D.dir/flags.make
 CMakeFiles/FEM3D.dir/src/test.cpp.o: /Users/dual/Dropbox/FEM3D/src/test.cpp
 CMakeFiles/FEM3D.dir/src/test.cpp.o: CMakeFiles/FEM3D.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dual/Dropbox/FEM3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/FEM3D.dir/src/test.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dual/Dropbox/FEM3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/FEM3D.dir/src/test.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FEM3D.dir/src/test.cpp.o -MF CMakeFiles/FEM3D.dir/src/test.cpp.o.d -o CMakeFiles/FEM3D.dir/src/test.cpp.o -c /Users/dual/Dropbox/FEM3D/src/test.cpp
 
 CMakeFiles/FEM3D.dir/src/test.cpp.i: cmake_force
@@ -184,7 +198,7 @@ CMakeFiles/FEM3D.dir/src/test.cpp.s: cmake_force
 CMakeFiles/FEM3D.dir/src/utils.cpp.o: CMakeFiles/FEM3D.dir/flags.make
 CMakeFiles/FEM3D.dir/src/utils.cpp.o: /Users/dual/Dropbox/FEM3D/src/utils.cpp
 CMakeFiles/FEM3D.dir/src/utils.cpp.o: CMakeFiles/FEM3D.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dual/Dropbox/FEM3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/FEM3D.dir/src/utils.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dual/Dropbox/FEM3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/FEM3D.dir/src/utils.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/FEM3D.dir/src/utils.cpp.o -MF CMakeFiles/FEM3D.dir/src/utils.cpp.o.d -o CMakeFiles/FEM3D.dir/src/utils.cpp.o -c /Users/dual/Dropbox/FEM3D/src/utils.cpp
 
 CMakeFiles/FEM3D.dir/src/utils.cpp.i: cmake_force
@@ -197,6 +211,7 @@ CMakeFiles/FEM3D.dir/src/utils.cpp.s: cmake_force
 
 # Object files for target FEM3D
 FEM3D_OBJECTS = \
+"CMakeFiles/FEM3D.dir/src/Const.cpp.o" \
 "CMakeFiles/FEM3D.dir/src/FEM3D.cpp.o" \
 "CMakeFiles/FEM3D.dir/src/FEMapplication.cpp.o" \
 "CMakeFiles/FEM3D.dir/src/FEMmachine.cpp.o" \
@@ -210,6 +225,7 @@ FEM3D_OBJECTS = \
 # External object files for target FEM3D
 FEM3D_EXTERNAL_OBJECTS =
 
+FEM3D: CMakeFiles/FEM3D.dir/src/Const.cpp.o
 FEM3D: CMakeFiles/FEM3D.dir/src/FEM3D.cpp.o
 FEM3D: CMakeFiles/FEM3D.dir/src/FEMapplication.cpp.o
 FEM3D: CMakeFiles/FEM3D.dir/src/FEMmachine.cpp.o
@@ -223,7 +239,7 @@ FEM3D: CMakeFiles/FEM3D.dir/build.make
 FEM3D: /Users/dual/Documents/projects/petsc/arch-darwin-cxx-opt/lib/libmpi.dylib
 FEM3D: /Users/dual/Documents/projects/petsc/arch-darwin-cxx-opt/lib/libpetsc.dylib
 FEM3D: CMakeFiles/FEM3D.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/dual/Dropbox/FEM3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable FEM3D"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/dual/Dropbox/FEM3D/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable FEM3D"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/FEM3D.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

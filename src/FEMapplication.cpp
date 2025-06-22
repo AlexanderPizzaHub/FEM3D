@@ -14,7 +14,7 @@ namespace application
         //delete fem_;
     };
 
-    PetscErrorCode PoissonDirichlet::AddBC(fempatch::FEMPatchBase *patch)
+    PetscErrorCode PoissonDirichlet::AddBC(fempatch::FEMPatchDirichletZero *patch)
     {
         // 添加边界处理类
         patches_.push_back(patch);
@@ -31,7 +31,10 @@ namespace application
         }
 
         PetscCall(fem_->AssembleStiff());
-        PetscCall(fem_->AssembleRHS());
+
+        Vec source_data;
+        PetscCall(fem_->DomainProject(constants::Source,source_data));
+        PetscCall(fem_->AssembleRHS(source_data));
         Mat stiff = fem_->GetStiff();
         Vec rhs = fem_->GetRHS();
         for (auto &patch : patches_)
@@ -56,10 +59,15 @@ namespace application
     PetscErrorCode PoissonDirichlet::Solve()
     {
         // 解线性方程组
+        
         PetscCall(KSPSolve(ksp, rhs_sub, sol_sub));
         for (auto &patch : patches_)
         {
-            PetscCall(patch->AugVec(sol_sub, sol));
+            PetscInt patch_type = patch->GetPatchType();
+            if(patch_type == 1)
+            {
+                PetscCall(patch->AugVec(sol_sub, sol));
+            }
         }
 
         return 0;

@@ -26,7 +26,8 @@ MESSAGE(STATUS "PETSC_INCLUDE_DIRS: ${PETSC_INCLUDE_DIRS}")
 MESSAGE(STATUS "PETSC_LIB: ${PETSC_LINK_LIBRARIES}")
 MESSAGE(STATUS "PETSC_PATH: ${PETSC_PATH}")
 
-set(CMAKE_CXX_FLAGS "-std=c++11 -O3")
+#set(CMAKE_CXX_FLAGS "-std=c++11 -O3")
+set(CMAKE_CXX_FLAGS "-std=c++11")
 
 #set(CMAKE_CXX_COMPILER "/Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/bin/mpicxx")
 #add_compile_options(-Wl,-rpath,/Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/lib -L/Users/dual/Documents/projects/petsc/arch-darwin-cxx-debug/lib -lpetsc -lf2clapack -lf2cblas -lc++)

@@ -19,7 +19,6 @@ namespace femm
             VecDestroy(&vert_indices_);
             VecDestroy(&vert_coords_);
             VecDestroy(&node_indices_);
-            VecDestroy(&node_labels_);
             VecDestroy(&node_coords_);
             VecDestroy(&elem_indices_);
         }
@@ -72,6 +71,30 @@ namespace femm
             VecSetValue(vert_indices_, p - node_start, p, INSERT_VALUES);
         }
 
+        DMLabel vertex_label = mesh_->GetLabel();
+        PetscInt num_patches;
+        PetscCall(DMLabelGetNumValues(vertex_label, &num_patches));
+
+        IS patchIS;
+        PetscInt patch_size;
+        const PetscInt *vertex_indices;
+        for(PetscInt patch_idx = 1; patch_idx < num_patches; patch_idx++)
+        {
+            PetscCall(DMLabelGetStratumIS(vertex_label, patch_idx, &patchIS));
+
+            PetscCall(ISGetLocalSize(patchIS, &patch_size));
+            PetscCall(ISShift(patchIS, -node_start, patchIS));
+
+            PetscCall(ISGetIndices(patchIS, &vertex_indices));
+    
+            std::vector<PetscInt> node_label_idx;
+            for(PetscInt subidx=0; subidx<patch_size;subidx++)
+            {
+                node_label_idx.push_back(vertex_indices[subidx]);
+            }
+            node_label_indices_.push_back(node_label_idx);
+        }
+        //std::cout << num_patches<<std::endl;
         return 0; // 返回错误码，0表示成功
     }
 
@@ -161,7 +184,8 @@ namespace femm
         for (PetscInt elem_idx = 0; elem_idx < num_elements_; ++elem_idx)
         {
             elem2node_idx = elem2node_map_[elem_idx];
-
+            
+            /*
             J[0] = node_coords_array[elem2node_idx[1] * dim] - node_coords_array[elem2node_idx[0] * dim];
             J[1] = node_coords_array[elem2node_idx[1] * dim + 1] - node_coords_array[elem2node_idx[0] * dim + 1];
             J[2] = node_coords_array[elem2node_idx[1] * dim + 2] - node_coords_array[elem2node_idx[0] * dim + 2];
@@ -171,7 +195,20 @@ namespace femm
             J[6] = node_coords_array[elem2node_idx[3] * dim] - node_coords_array[elem2node_idx[0] * dim];
             J[7] = node_coords_array[elem2node_idx[3] * dim + 1] - node_coords_array[elem2node_idx[0] * dim + 1];
             J[8] = node_coords_array[elem2node_idx[3] * dim + 2] - node_coords_array[elem2node_idx[0] * dim + 2];
+            */
+            
 
+           J[0] = node_coords_array[elem2node_idx[1] * dim] - node_coords_array[elem2node_idx[0] * dim];
+            J[1] = node_coords_array[elem2node_idx[2] * dim] - node_coords_array[elem2node_idx[0] * dim];
+            J[2] = node_coords_array[elem2node_idx[3] * dim] - node_coords_array[elem2node_idx[0] * dim];
+            J[3] = node_coords_array[elem2node_idx[1] * dim + 1] - node_coords_array[elem2node_idx[0] * dim + 1];
+            J[4] = node_coords_array[elem2node_idx[2] * dim + 1] - node_coords_array[elem2node_idx[0] * dim + 1];
+            J[5] = node_coords_array[elem2node_idx[3] * dim + 1] - node_coords_array[elem2node_idx[0] * dim + 1];
+            J[6] = node_coords_array[elem2node_idx[1] * dim + 2] - node_coords_array[elem2node_idx[0] * dim + 2];
+            J[7] = node_coords_array[elem2node_idx[2] * dim + 2] - node_coords_array[elem2node_idx[0] * dim + 2];
+            J[8] = node_coords_array[elem2node_idx[3] * dim + 2] - node_coords_array[elem2node_idx[0] * dim + 2];
+            
+            
             numerical::determinant33(J, detJ);
             detJinv = 1.0 / detJ;
 
@@ -238,12 +275,39 @@ namespace femm
                 std::cout << std::endl;
             }
                 */
+            /*
+            std::cout << "element: " << elem_idx<<std::endl;
+            std::cout << "substiff:" << std::endl;
+            for(int i =0;i<4;i++)
+            {
+                for(int j =0;j<4;j++)
+                {
+                    std::cout << sub_stiff[4*i+j] << " ";
+                }
+                std::cout << std::endl;
+            }
+            std::cout << "coords: "<< std::endl;
+            for(int i=0;i<4;i++)
+            {
+                for(int j=0;j<3;j++)
+                {
+                    std::cout << node_coords_array[elem2node_idx[i] * dim+j]<<" ";
+                }
+                std::cout << std::endl;
+            }
+            std::cout << "J adjoint: "<<std::endl;
+            std::cout << adjJ_nablaL1[0] << " " << adjJ_nablaL1[1] << " "<<adjJ_nablaL1[2] << std::endl;
+            std::cout << adjJ_nablaL2[0] << " " << adjJ_nablaL2[1] << " "<<adjJ_nablaL2[2] << std::endl;
+            std::cout << adjJ_nablaL3[0] << " " << adjJ_nablaL3[1] << " "<<adjJ_nablaL3[2] << std::endl;
+            */
 
             PetscCall(MatSetValues(stiff_, dim + 1, elem2node, dim + 1, elem2node, sub_stiff, ADD_VALUES));
         }
         // std::cout << "AssembleStiff done!" << std::endl;
         PetscCall(MatAssemblyBegin(stiff_, MAT_FINAL_ASSEMBLY));
         PetscCall(MatAssemblyEnd(stiff_, MAT_FINAL_ASSEMBLY));
+
+
         return 0;
     };
 
@@ -298,10 +362,79 @@ namespace femm
         return 0;
     };
 
-    PetscErrorCode LagrangeP1FEM::AssembleRHS()
+
+
+    PetscErrorCode LagrangeP1FEM::AssembleRHS(Vec data)
     {
-        utils::VecSetup(num_nodes_, rhs_);
-        PetscCall(VecSet(rhs_, 1.0));
+        PetscScalar source, detJ;
+        PetscScalar *data_section, *add_values, *J, *node_coords_array;
+        PetscInt *elem2node_idx;
+
+        data_section = new PetscScalar[4];
+        add_values = new PetscScalar[4];
+        J = new PetscScalar[9];
+
+        PetscCall(VecGetArray(node_coords_, &node_coords_array));
+        PetscCall(utils::VecSetup(num_nodes_,rhs_));
+        PetscCall(VecSet(rhs_, 0.0));
+        for (PetscInt p = 0; p < num_elements_; p++)
+        {
+            elem2node_idx = elem2node_map_[p].data();
+
+            J[0] = node_coords_array[elem2node_idx[1] * dim] - node_coords_array[elem2node_idx[0] * dim];
+            J[1] = node_coords_array[elem2node_idx[1] * dim + 1] - node_coords_array[elem2node_idx[0] * dim + 1];
+            J[2] = node_coords_array[elem2node_idx[1] * dim + 2] - node_coords_array[elem2node_idx[0] * dim + 2];
+            J[3] = node_coords_array[elem2node_idx[2] * dim] - node_coords_array[elem2node_idx[0] * dim];
+            J[4] = node_coords_array[elem2node_idx[2] * dim + 1] - node_coords_array[elem2node_idx[0] * dim + 1];
+            J[5] = node_coords_array[elem2node_idx[2] * dim + 2] - node_coords_array[elem2node_idx[0] * dim + 2];
+            J[6] = node_coords_array[elem2node_idx[3] * dim] - node_coords_array[elem2node_idx[0] * dim];
+            J[7] = node_coords_array[elem2node_idx[3] * dim + 1] - node_coords_array[elem2node_idx[0] * dim + 1];
+            J[8] = node_coords_array[elem2node_idx[3] * dim + 2] - node_coords_array[elem2node_idx[0] * dim + 2];
+
+            numerical::determinant33(J, detJ);
+
+            PetscCall(VecGetValues(data, 4, elem2node_idx, data_section));
+            //source = (data_section[0] + data_section[1] + data_section[2] + data_section[3]) / 4.0;
+            source = data_section[0];
+
+            
+
+            if(detJ < 0){detJ *= -1.0;};
+
+            source *= (detJ / 24.0);
+            //source *= (1.0/24.0/detJ);
+            //std::cout << source << std::endl;
+
+            add_values[0] = source;
+            add_values[1] = source;
+            add_values[2] = source;
+            add_values[3] = source;
+            PetscCall(VecSetValues(rhs_, 4, elem2node_idx, add_values, ADD_VALUES));
+        }
+        PetscCall(VecAssemblyBegin(rhs_));
+        PetscCall(VecAssemblyEnd(rhs_));
+        //PetscCall(VecView(rhs_,PETSC_VIEWER_STDOUT_WORLD));
+        
+        return 0;
+    };
+
+    PetscErrorCode LagrangeP1FEM::DomainProject(PetscScalar (*func)(PetscScalar x, PetscScalar y, PetscScalar z), Vec &data)
+    {
+        PetscScalar *node_coords_array;
+        PetscScalar data_point;
+
+        PetscCall(utils::VecSetup(num_nodes_, data));
+        PetscCall(VecGetArray(node_coords_, &node_coords_array));
+
+        for (PetscInt i = 0; i < num_nodes_; i++)
+        {
+            data_point = func(node_coords_array[dim * i],
+                              node_coords_array[dim * i + 1],
+                              node_coords_array[dim * i + 2]);
+            PetscCall(VecSetValue(data,i,data_point,INSERT_VALUES));
+        }
+        PetscCall(VecAssemblyBegin(data));
+        PetscCall(VecAssemblyEnd(data));
         return 0;
     };
 
